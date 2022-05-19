@@ -1,0 +1,97 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Mastermind.MainWindow"
+        Title="Window with Button"
+        MinWidth="1024"
+        Height="768">
+    <DockPanel>
+
+        <StackPanel Background="Orange" DockPanel.Dock="Top">
+            <TextBlock HorizontalAlignment="Center" Margin="0 24 0 8">COMBINAÇÃO RETORNADA</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="0 0 0 24" FontSize="24" FontWeight="UltraBold">5642</TextBlock>
+        </StackPanel>
+        <Rectangle Fill="Black" Height="1" DockPanel.Dock="Top" />
+        <Grid ColumnDefinitions="*, 4, *">
+            <ScrollViewer Grid.Column="0" Background="Gray" HorizontalScrollBarVisibility="Auto">
+                <Grid RowDefinitions="*">
+
+
+                    <StackPanel Grid.Row="0" VerticalAlignment="Top" Margin=" 24 0 24 48">
+                        <Grid Grid.Row="0" ColumnDefinitions="*, *, *" VerticalAlignment="Top" Margin="12">
+                            <!-- CABECALHO-->
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="12" FontWeight="UltraBold">RODADA</TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                                <TextBlock FontSize="12" FontWeight="UltraBold">IA</TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" HorizontalAlignment="Right">
+                                <TextBlock FontSize="12" FontWeight="UltraBold">USER</TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Rodadas-->
+
+                        <ListBox Items="{Binding RegisterList}" Name="lvDataBinding" >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*, *, *">
+                                        <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+                                            <TextBlock FontSize="16" FontWeight="UltraBold" Text="{Binding round}" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                                            <TextBlock FontSize="16" FontWeight="UltraBold" Text="{Binding iaInput}" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="2" HorizontalAlignment="Right">
+                                            <TextBlock FontSize="16" FontWeight="UltraBold" Text="{Binding userInput}" />
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+
+                    </StackPanel>
+                </Grid>
+
+
+            </ScrollViewer>
+
+
+            <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns" />
+            <StackPanel Grid.Column="2" Background="Orange">
+                <Grid ColumnDefinitions="*, *" Margin="0 48">
+                    <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                        <TextBlock>Valores Corretos</TextBlock>
+                        <ComboBox x:Name="VC" SelectedIndex="0" Margin="0 24" HorizontalAlignment="Center">
+                            <ComboBoxItem></ComboBoxItem>
+                            <ComboBoxItem>0</ComboBoxItem>
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                        <TextBlock>Posição incorreta</TextBlock>
+                        <ComboBox x:Name="VCPE" SelectedIndex="0" Margin="0 24" HorizontalAlignment="Center">
+                            <ComboBoxItem></ComboBoxItem>
+                            <ComboBoxItem></ComboBoxItem>
+                            <ComboBoxItem>0</ComboBoxItem>
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+
+                <Button Name="enviar" Background="Blue" Click="SendFeedback" HorizontalAlignment="Center" Height="56"
+                        Width="240">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White">Enviar feedback</TextBlock>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>

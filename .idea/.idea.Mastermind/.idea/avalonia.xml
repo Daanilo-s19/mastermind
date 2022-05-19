@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Mastermind/App.axaml" value="Mastermind/Mastermind.csproj" />
+        <entry key="Mastermind/MainWindow.axaml" value="Mastermind/Mastermind.csproj" />
+        <entry key="Mastermind/home.axaml" value="Mastermind/Mastermind.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
