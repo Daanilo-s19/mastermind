@@ -53,8 +53,7 @@ namespace Mastermind
             registerList = new List<Register>(registerList);
 
             registerList.Add(new Register { round = registerList.Count + 1, iaInput = " ", userInput = input });
-
-
+            
             lvDataBinding.Items = registerList;
         }
     }
