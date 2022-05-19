@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -26,29 +27,35 @@ namespace Mastermind
             //  var button = (Button)sender;
             //  button.Content = "Hello, Avalonia!";
 
+
+            if ((ComboBoxItem)VC.SelectedItem is null || (ComboBoxItem)VCPE.SelectedItem is null) return;
+            
+            
             var selectIncorrect = this.Find<ComboBox>("VCPE");
-            var typeItemWrong = (ComboBoxItem)VCPE.SelectedItem!;
+            var typeItemWrong = (ComboBoxItem)VCPE.SelectedItem;
             var incorrectPositionvalue = typeItemWrong.Content.ToString();
             selectIncorrect.SelectedIndex = 0;
 
             var selectCorrect = this.Find<ComboBox>("VC");
-            var typeItemRight = (ComboBoxItem)VC.SelectedItem!;
+            var typeItemRight = (ComboBoxItem)VC.SelectedItem;
             var correctPositionValue = typeItemRight.Content.ToString();
             selectCorrect.SelectedIndex = 0;
 
-            AddRegister(correctPositionValue, incorrectPositionvalue);
+            //AddRegister(correctPositionValue, incorrectPositionvalue);
         }
 
         private void AddRegister(string? correctPosition, string? incorrectPosition)
         {
-            if (correctPosition == null || incorrectPosition == null) return;
+            if (correctPosition is null || incorrectPosition is null) return;
             
             var input = "[" + correctPosition + " , " + incorrectPosition + "]";
-            registerList.Add(new Register() { round = registerList.Count + 1, iaInput = " ", userInput = input });
+
+            registerList = new List<Register>(registerList);
+
+            registerList.Add(new Register { round = registerList.Count + 1, iaInput = " ", userInput = input });
 
 
             lvDataBinding.Items = registerList;
-
         }
     }
 
