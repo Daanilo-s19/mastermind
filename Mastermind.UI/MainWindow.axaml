@@ -1,6 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="Mastermind.MainWindow"
+        x:Class="Mastermind.UI.MainWindow"
         Title="Window with Button"
         MinWidth="1024"
         Height="768">
@@ -37,13 +37,13 @@
                                 <DataTemplate>
                                     <Grid ColumnDefinitions="*, *, *">
                                         <StackPanel Grid.Column="0" HorizontalAlignment="Left">
-                                            <TextBlock FontSize="16" FontWeight="UltraBold" Text="{Binding round}" />
+                                            <TextBlock FontSize="16" FontWeight="UltraBold" Text="{Binding Round}" />
                                         </StackPanel>
                                         <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                                            <TextBlock FontSize="16" FontWeight="UltraBold" Text="{Binding iaInput}" />
+                                            <TextBlock FontSize="16" FontWeight="UltraBold" Text="{Binding IaInput}" />
                                         </StackPanel>
                                         <StackPanel Grid.Column="2" HorizontalAlignment="Right">
-                                            <TextBlock FontSize="16" FontWeight="UltraBold" Text="{Binding userInput}" />
+                                            <TextBlock FontSize="16" FontWeight="UltraBold" Text="{Binding UserInput}" />
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>
