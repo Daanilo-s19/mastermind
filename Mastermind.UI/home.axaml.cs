@@ -4,18 +4,15 @@ using Avalonia.Markup.Xaml;
 
 namespace Mastermind.UI;
 
-public partial class home : Window
-{
-    public home()
-    {
-        InitializeComponent();
+public partial class home : Window {
+  public home() {
+    InitializeComponent();
 #if DEBUG
-        this.AttachDevTools();
+    this.AttachDevTools();
 #endif
-    }
+  }
 
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
-    }
+  private void InitializeComponent() {
+    AvaloniaXamlLoader.Load(this);
+  }
 }
